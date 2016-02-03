@@ -19,20 +19,20 @@
     <parent>
         <artifactId>onos-app-samples</artifactId>
         <groupId>org.onosproject</groupId>
-        <version>1.5.0-SNAPSHOT</version>
+        <version>1.4.0</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <groupId>org.onosproject</groupId>
     <artifactId>onos-app-ecord-co</artifactId>
-    <version>1.5.0-SNAPSHOT</version>
+    <version>1.4.0</version>
     <packaging>bundle</packaging>
 
     <description>Enterprise CORD for Central Office</description>
     <url>http://onosproject.org</url>
 
     <properties>
-        <onos.version>1.5.0-SNAPSHOT</onos.version>
+        <onos.version>1.4.0</onos.version>
         <onos.app.name>org.onosproject.ecord.co</onos.app.name>
         <!-- TODO App dependency not working? -->
         <onos.app.requires>org.onosproject.incubator.rpc,org.onosproject.incubator.rpc.grpc</onos.app.requires>

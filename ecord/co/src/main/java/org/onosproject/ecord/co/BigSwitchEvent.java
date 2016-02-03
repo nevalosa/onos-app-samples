@@ -1,5 +1,6 @@
+package org.onosproject.ecord.co;
 /*
- * Copyright 2015 Open Networking Laboratory
+ * Copyright 2014 Open Networking Laboratory
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,48 +14,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.onosproject.ecord.co;
 
 import org.onosproject.event.AbstractEvent;
-import org.onosproject.net.device.PortDescription;
 
-// TODO probably Event subject should contain Device info.
-//      e.g., (DeviceId, PortDescription)
-public class BigSwitchEvent extends AbstractEvent<BigSwitchEvent.Type, PortDescription> {
+/**
+ * Entity that represents Alarm events.
+ */
+public class BigSwitchEvent extends AbstractEvent<BigSwitchEvent.Type, Alarm> {
 
+
+    /**
+     * Creates an event of a given type and for the specified alarm and the
+     * current time.
+     *
+     * @param type  topology event type
+     * @param alarm the alarm
+     */
+    public BigSwitchEvent(Type type, Alarm alarm) {
+        super(type, alarm);
+    }
+
+    /**
+     * Creates an event of a given type and for the specified alarm and time.
+     *
+     * @param type  link event type
+     * @param alarm the alarm
+     * @param time  occurrence time
+     */
+    public BigSwitchEvent(Type type, Alarm alarm,
+                      long time) {
+        super(type, alarm, time);
+    }
+
+    /**
+     * Type of alarm events.
+     */
     public enum Type {
         /**
-         * Signifies a port was added to the big switch.
+         * A Raised Alarm.
          */
-        PORT_ADDED,
+        RAISE,
+
         /**
-         * Signifies a port was removed from the big switch.
+         * A Cleared Alarm.
          */
-        PORT_REMOVED,
-        /**
-         * Signifies a port was updated in the big switch.
-         */
-        PORT_UPDATED
+        CLEAR
     }
 
-    /**
-     * Creates a new big switch event.
-     *
-     * @param type event type
-     * @param subject the port description
-     */
-    public BigSwitchEvent(Type type, PortDescription subject) {
-        super(type, subject);
-    }
 
-    /**
-     * Creates a new big switch event.
-     *
-     * @param type event type
-     * @param subject the port description
-     * @param time occurence time
-     */
-    public BigSwitchEvent(Type type, PortDescription subject, long time) {
-        super(type, subject, time);
-    }
 }
