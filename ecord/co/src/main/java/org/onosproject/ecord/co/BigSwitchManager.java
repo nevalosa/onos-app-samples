@@ -22,6 +22,7 @@ import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.apache.felix.scr.annotations.Service;
 import org.onosproject.event.AbstractListenerManager;
+import org.onosproject.event.EventDispatcher;
 import org.onosproject.net.DeviceId;
 import org.slf4j.Logger;
 
@@ -38,7 +39,7 @@ public class BigSwitchManager
         implements BigSwitchService {
 
     private static final Logger log = getLogger(BigSwitchManager.class);
-
+    private EventDispatcher local = eventDispatcher;
     @Activate
     public void activate() {
         log.info("EVENT DISPACTHER" + eventDispatcher);
@@ -54,7 +55,14 @@ public class BigSwitchManager
     public void addEvent(String r) {
 
     log.info("INSIDE ADD EVENT");
-    log.info("EVENT DISPATCHER" + eventDispatcher);
+    log.info("EVENT DISPATCHER + LOCAL" + local);
+//    while (eventDispatcher == null) {
+//        try {
+//        Thread.sleep(2000);
+//    } catch (Exception e) {
+//           log.debug("EXCEPTION");
+//     }
+//    }
     BigSwitch a = new BigSwitch.Builder(AlarmId.valueOf(1),
     DeviceId.deviceId("dhgvfgsdfj"),
     "This is alarm for PRODUCER SERVICE",

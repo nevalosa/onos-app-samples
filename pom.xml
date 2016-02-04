@@ -45,16 +45,6 @@
     </pluginRepositories>
 
     <modules>
-        <module>calendar</module>
-        <module>vpls</module>
-        <module>database-perf</module>
-        <module>flowtest</module>
-        <module>ifwd</module>
-        <module>ipfix</module>
-        <module>oneping</module>
-        <module>sdx-l3</module>
-        <module>tvue</module>
-        <module>uiref</module>
         <module>ecord/co</module>
   </modules>
 
